@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Stepper: View {
+struct MyStepper: View {
 	@State var StepsNum: Int = 4
 	@State var CurrentStep: Int = 0
     var body: some View {
@@ -47,5 +47,5 @@ struct Stepper: View {
 }
 
 #Preview {
-	Stepper()
+	MyStepper()
 }

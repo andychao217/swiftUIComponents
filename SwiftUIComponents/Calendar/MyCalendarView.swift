@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct CalendarView: View {
+struct MyCalendarView: View {
     @Environment(\.colorScheme) var colorScheme
     var weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
 

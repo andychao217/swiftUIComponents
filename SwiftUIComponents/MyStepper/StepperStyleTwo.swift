@@ -49,5 +49,5 @@ struct StepperStyleTwo: View {
 }
 
 #Preview {
-	Stepper()
+	MyStepper()
 }

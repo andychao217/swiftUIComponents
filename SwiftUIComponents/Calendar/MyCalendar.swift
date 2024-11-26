@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct Calendar: View {
+struct MyCalendar: View {
     @State var currentDate: Date = Date()
     // 定义一个定时器
     @State var timer: Timer? = nil
 
     var body: some View {
-		CalendarView(currentDate: $currentDate)
+		MyCalendarView(currentDate: $currentDate)
             .onAppear {
                 // 启动定时器
                 timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
@@ -30,5 +30,5 @@ struct Calendar: View {
 }
 
 #Preview {
-    Calendar()
+    MyCalendar()
 }
