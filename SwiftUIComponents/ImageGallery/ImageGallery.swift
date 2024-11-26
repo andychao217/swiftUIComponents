@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ImageGallery: View {
+	@StateObject var dataModel = ImageGalleryDataModel()
+	
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		ImageGalleryGridView()
+			.environmentObject(dataModel)
     }
 }
 

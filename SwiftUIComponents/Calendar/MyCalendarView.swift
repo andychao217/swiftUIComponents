@@ -313,5 +313,5 @@ struct VisualEffectBlur: UIViewRepresentable {
 }
 
 #Preview {
-    Calendar()
+    MyCalendar()
 }

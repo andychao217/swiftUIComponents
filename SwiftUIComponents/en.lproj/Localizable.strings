@@ -1,7 +1,28 @@
-/* 
-  Localizable.strings
-  SwiftUIComponents
+/*
+   Localizable.strings
+   SwiftUIComponents
 
-  Created by Andy Chao on 2024/11/26.
-  
-*/
+   Created by Andy Chao on 2024/11/26.
+
+ */
+
+"column_text" = "Column";
+"columns_text" = "Columns";
+"edit" = "Edit";
+"image_gallery" = "Image Gallery";
+"detail" = "Details";
+"done" = "Done";
+
+"column_text" = "列";
+"columns_text" = "列";
+"edit" = "编辑";
+"image_gallery" = "相册";
+"detail" = "查看";
+"done" = "完成";
+
+"column_text" = "列";
+"columns_text" = "列";
+"edit" = "編集";
+"image_gallery" = "アルバム";
+"detail" = "詳細";
+"done" = "完了";

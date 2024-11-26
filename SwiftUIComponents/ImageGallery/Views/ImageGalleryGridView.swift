@@ -19,14 +19,14 @@ struct ImageGalleryGridView: View {
 	@State private var numColumns = initialColumns
 	
 	private var columnsTitle: String {
-		gridColumns.count > 1 ? "\(gridColumns.count) Columns" : "1 Column"
+		let columnCount = gridColumns.count
+		let columnText = NSLocalizedString("column_text", comment: "Column text for grid layout")
+		return columnCount > 1 ? "\(columnCount) \(columnText)" : "1 \(columnText)"
 	}
 	
     var body: some View {
 		NavigationStack {
 			ZStack {
-				Color.white.ignoresSafeArea()
-				
 				VStack {
 					if isEditing {
 						CustomStepper(title: columnsTitle, range: 1...8, columns: $gridColumns)
@@ -73,13 +73,13 @@ struct ImageGalleryGridView: View {
 								.frame(width: geo.size.width, height: geo.size.height)
 						}
 						.padding(5)
-						.navigationTitle("Details")
+						.navigationTitle("detail")
 						.navigationBarTitleDisplayMode(.inline)
 						.navigationTransition(.zoom(sourceID: index.id, in: animation))
 					}
 				}
 			}
-			.navigationTitle("Image Gallery")
+			.navigationTitle("image_gallery")
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
@@ -88,7 +88,7 @@ struct ImageGalleryGridView: View {
 							isEditing.toggle()
 						}
 					} label: {
-						Text(isEditing ? "Done" : "Edit")
+						Text(isEditing ? "done" : "edit")
 					}
 				}
 				

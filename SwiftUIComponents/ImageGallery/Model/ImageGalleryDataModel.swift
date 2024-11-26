@@ -8,31 +8,31 @@
 import Foundation
 
 class ImageGalleryDataModel: ObservableObject {
-	@Published var items: [Item] = []
+	@Published var items: [ImageGalleryItem] = []
 	
 	init() {
 		if let documentDirectory = FileManager.default.documentDirectory {
 			let urls = FileManager.default.getContentsDirectory(documentDirectory).filter { $0.isImage }
 			
 			for url in urls {
-				let item = Item(url: url)
+				let item = ImageGalleryItem(url: url)
 				items.append(item)
 			}
 		}
 		
 		if let urls = Bundle.main.urls(forResourcesWithExtension: "jpg", subdirectory: nil) {
 			for url in urls {
-				let item = Item(url: url)
+				let item = ImageGalleryItem(url: url)
 				items.append(item)
 			}
 		}
 	}
 	
-	func addItem(_ item: Item) {
+	func addItem(_ item: ImageGalleryItem) {
 		items.insert(item, at: 0)
 	}
 	
-	func removeItem(_ item: Item) {
+	func removeItem(_ item: ImageGalleryItem) {
 		if let index = items.firstIndex(of: item) {
 			items.remove(at: index)
 			FileManager.default.removeItemFromDocumentDirectory(url: item.url)
