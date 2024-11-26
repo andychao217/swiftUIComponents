@@ -6,6 +6,7 @@
 
  */
 
+//cn
 "column_text" = "Column";
 "columns_text" = "Columns";
 "edit" = "Edit";
@@ -13,6 +14,7 @@
 "detail" = "Details";
 "done" = "Done";
 
+//en
 "column_text" = "列";
 "columns_text" = "列";
 "edit" = "编辑";
@@ -20,6 +22,7 @@
 "detail" = "查看";
 "done" = "完成";
 
+//jp
 "column_text" = "列";
 "columns_text" = "列";
 "edit" = "編集";

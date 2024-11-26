@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ImageGalleryDetailView: View {
     let item: ImageGalleryItem
-	
-	@State private var isFullScreen: Bool = false
+
+    @State private var isFullScreen: Bool = false
     // 旋转角度属性
     @State private var angle: Angle = .zero
     // 控制缩放的属性
@@ -35,23 +35,36 @@ struct ImageGalleryDetailView: View {
     }
 
     var body: some View {
-		VStack {
-			AsyncImage(url: item.url) { image in
-				image
-					.resizable()
-					.aspectRatio(contentMode: isFullScreen ? .fill : .fit)
-					.scaleEffect(magnifyBy)
-					.rotationEffect(angle)
-					.gesture(rotationAndScale)
-					.animation(.easeInOut, value: angle) // 添加动画以平滑旋转效果
-					.onTapGesture(count: 2) {
-						withAnimation {
-							isFullScreen.toggle()
-						}
-					}
-			} placeholder: {
-				ProgressView()
-			}
-		}
+        ZStack {
+            if isFullScreen {
+                ScrollView([.horizontal, .vertical]) {
+                    AsyncImage(url: item.url) { image in
+                        image
+                            .resizable()
+							.scaledToFill()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                }
+                .edgesIgnoringSafeArea(.all) // 使 ScrollView 边缘延伸到屏幕
+            } else {
+                AsyncImage(url: item.url) { image in
+                    image
+                        .resizable()
+						.scaledToFit()
+                        .scaleEffect(magnifyBy)
+                        .rotationEffect(angle)
+                        .gesture(rotationAndScale)
+                        .animation(.easeInOut, value: angle) // 添加动画以平滑旋转效果
+                } placeholder: {
+                    ProgressView()
+                }
+            }
+        }
+        .onTapGesture(count: 2) {
+            withAnimation {
+                isFullScreen.toggle()
+            }
+        }
     }
 }
