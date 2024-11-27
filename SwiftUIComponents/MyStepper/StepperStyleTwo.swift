@@ -14,11 +14,12 @@ struct StepperStyleTwo: View {
     var body: some View {
 		HStack(spacing: 0) {
 			ForEach(0 ..< StepNum, id:\.self) { item in
+				let stepText = NSLocalizedString("step", comment: "Step text for StepperStyleTwo")
 				Circle().stroke(lineWidth: 3)
 					.frame(width: 40, height: 40)
 					.foregroundStyle(item < CurrentStep ? .primary : .secondary)
 					.overlay {
-						Text("Step \(item + 1)")
+						Text("\(stepText) \(item + 1)")
 							.fixedSize()
 							.offset(x: 3, y: 45)
 							.foregroundStyle(item < CurrentStep ? .primary : .secondary)

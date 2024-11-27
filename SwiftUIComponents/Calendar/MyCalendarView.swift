@@ -10,7 +10,6 @@ import SwiftUI
 
 struct MyCalendarView: View {
     @Environment(\.colorScheme) var colorScheme
-    var weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
 
     @Binding var currentDate: Date
 
@@ -170,9 +169,9 @@ struct MyCalendarView: View {
 
                         VStack {
                             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7), spacing: 15) {
-                                ForEach(weekdays, id: \.self) { day in
+                                ForEach(localizedWeekdays(), id: \.self) { day in
                                     Text(day)
-                                        .foregroundStyle(day == "SUN" ? .pink : colorScheme == .dark ? .white : .black)
+                                        .foregroundStyle(day == NSLocalizedString("SUN", comment: "Sunday") ? .pink : colorScheme == .dark ? .white : .black)
                                 }
                             }
 
@@ -222,34 +221,34 @@ struct MyCalendarView: View {
                 selectImage = uiImage
             }
         }
-        .confirmationDialog("选择图片", isPresented: $isShowAlert) {
+        .confirmationDialog("choose_photo", isPresented: $isShowAlert) {
             Button {
                 if ImagePickerControllerView.cameraAviable() {
                     self.sourceType = .camera
                     showImagePickerView.toggle()
                 }
             } label: {
-                Text("拍照")
+                Text("camera")
             }
 
             Button {
                 self.sourceType = .photoLibrary
                 showImagePickerView.toggle()
             } label: {
-                Text("图片库")
+                Text("image_gallery")
             }
 
             Button {
                 selectImage = nil
                 isShowAlert = false
             } label: {
-                Text("默认")
+                Text("default")
             }
 
             Button(role: ButtonRole.cancel) {
                 isShowAlert = false
             } label: {
-                Text("取消")
+                Text("cancel")
             }
         }
     }
@@ -265,6 +264,19 @@ struct MyCalendarView: View {
         let firstDayIndex = calendar.component(.weekday, from: daysInMonth.first!) - calendar.firstWeekday - 1
         let index = row * 7 + column - firstDayIndex
         return index >= 0 && index < daysInMonth.count ? daysInMonth[index] : nil
+    }
+
+    // 获取本地化的星期数组
+    private func localizedWeekdays() -> [String] {
+        return [
+            NSLocalizedString("SUN", comment: "Sunday"),
+            NSLocalizedString("MON", comment: "Monday"),
+            NSLocalizedString("TUE", comment: "Tuesday"),
+            NSLocalizedString("WED", comment: "Wednsday"),
+            NSLocalizedString("THU", comment: "Thursday"),
+            NSLocalizedString("FRI", comment: "Friday"),
+            NSLocalizedString("SAT", comment: "Saturday"),
+        ]
     }
 
 //    private func daysInCurrentMonth() -> [Date] {

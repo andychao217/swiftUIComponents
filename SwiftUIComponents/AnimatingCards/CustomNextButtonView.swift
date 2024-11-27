@@ -13,7 +13,7 @@ struct CustomNextButtonView: View {
 			print("next")
 		} label: {
 			HStack {
-				Text("Start").foregroundColor(.white)
+				Text("start").foregroundColor(.white)
 				Image(systemName: "arrowshape.right.circle.fill")
 					.foregroundColor(.black)
 			}

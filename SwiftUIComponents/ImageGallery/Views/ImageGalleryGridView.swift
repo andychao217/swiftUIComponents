@@ -21,7 +21,8 @@ struct ImageGalleryGridView: View {
 	private var columnsTitle: String {
 		let columnCount = gridColumns.count
 		let columnText = NSLocalizedString("column_text", comment: "Column text for grid layout")
-		return columnCount > 1 ? "\(columnCount) \(columnText)" : "1 \(columnText)"
+		let columnsText = NSLocalizedString("columns_text", comment: "Columns text for grid layout")
+		return columnCount > 1 ? "\(columnCount) \(columnsText)" : "1 \(columnText)"
 	}
 	
     var body: some View {

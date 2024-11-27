@@ -18,7 +18,7 @@ struct MyStepper: View {
 			StepperStyleFour(StepNum: StepsNum, CurrentStep: $CurrentStep)
 			
 			HStack {
-				Button("Back") {
+				Button("back") {
 					withAnimation {
 						if CurrentStep > 0 {
 							CurrentStep -= 1
@@ -28,7 +28,7 @@ struct MyStepper: View {
 				.padding(.horizontal)
 				.disabled(CurrentStep <= 0)
 				
-				Button("Next") {
+				Button("next") {
 					withAnimation {
 						if CurrentStep < StepsNum {
 							CurrentStep += 1
