@@ -48,8 +48,7 @@ class Coordinator: NSObject, UINavigationControllerDelegate, PHPickerViewControl
 		// Dismiss the presented picker
 		self.parent.dismiss()
 		
-		guard let result = results.first, result.itemProvider.hasItemConformingToTypeIdentifier(UTType.image.identifier)
-		else { return }
+		guard let result = results.first, result.itemProvider.hasItemConformingToTypeIdentifier(UTType.image.identifier) else { return }
 		
 		// Load a file representation of the picked item
 		// This creates a temporary file which is then copied to the app's document directory for persistent storage

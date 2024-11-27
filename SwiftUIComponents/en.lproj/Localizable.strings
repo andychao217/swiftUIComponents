@@ -4,28 +4,24 @@
 
    Created by Andy Chao on 2024/11/26.
 
+ - zh-Hans.lproj
+	 - Localizable.strings
+ - zh-Hant.lproj
+	 - Localizable.strings
+ - en.lproj
+	 - Localizable.strings
+ - ja.lproj
+	 - Localizable.strings
+ - ko.lproj
+	 - Localizable.strings
+ - fr.lproj
+	 - Localizable.strings
  */
 
-//cn
+//en
 "column_text" = "Column";
 "columns_text" = "Columns";
 "edit" = "Edit";
 "image_gallery" = "Image Gallery";
 "detail" = "Details";
 "done" = "Done";
-
-//en
-"column_text" = "列";
-"columns_text" = "列";
-"edit" = "编辑";
-"image_gallery" = "相册";
-"detail" = "查看";
-"done" = "完成";
-
-//jp
-"column_text" = "列";
-"columns_text" = "列";
-"edit" = "編集";
-"image_gallery" = "アルバム";
-"detail" = "詳細";
-"done" = "完了";
